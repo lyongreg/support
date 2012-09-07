@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 
-public class PremiumStreamingConsumer {
+public class PremiumStreamConsumer {
     public static void main(String... args) throws IOException {
 
         // ENTER REAL INFORMATION HERE
