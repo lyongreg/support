@@ -8,11 +8,9 @@ import java.util.zip.GZIPInputStream;
 public class ListRules {
     public static void main(String... args) throws IOException {
 
-        // ENTER REAL INFORMATION HERE
-        
 	String username = "ENTER_USERNAME_HERE";
         String password = "ENTER_PASSWORD_HERE";
-	String dataCollectorURL = "ENTER_STREAM_URL_HERE";	
+	String dataCollectorURL = "ENTER_RULES_API_URL_HERE";	
 
         HttpURLConnection connection = null;
         InputStream inputStream = null;
@@ -25,7 +23,6 @@ public class ListRules {
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-                // Just prints the first line of the response.
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(inputStream)));
                 String line = reader.readLine();
 

@@ -11,13 +11,13 @@ class DeleteRule {
 
         String username = "ENTER_USERNAME_HERE";
         String password = "ENTER_PASSWORD_HERE";
-        String dataCollectorURL = "ENTER_STREAM_URL_HERE";       
+        String dataCollectorURL = "ENTER_RULES_API_URL_HERE";       
  
         String charset = "UTF-8";
         String param1 = "testtag";  //tag for rule
         String param2 = "testrule"; //our rule to delete
-        // "{\"rules\":[{\"tag\":\"%s\",\"value\":\"" + rule + "\"}]}"
-        String query = String.format("{\"rules\":[{\"tag\":\"%s\",\"value\":\"%s\"}]}", 
+        
+	String query = String.format("{\"rules\":[{\"tag\":\"%s\",\"value\":\"%s\"}]}", 
              java.net.URLEncoder.encode(param1, charset), java.net.URLEncoder.encode(param2, charset));
 
         HttpURLConnection connection = null;
@@ -36,14 +36,12 @@ class DeleteRule {
                  if (output != null) try { output.close(); } catch (IOException logOrIgnore) {}
             }
 
-            //inputStream = connection.getInputStream();
             int responseCode = connection.getResponseCode();
             String responseMessage = connection.getResponseMessage();
             if (responseCode >= 200 && responseCode <= 299) {
                 
                 inputStream = connection.getInputStream();
 
-                // Just print the first line of the response.
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String line = reader.readLine();
                 System.out.println("Response Code: " + responseCode + " -- " + responseMessage);

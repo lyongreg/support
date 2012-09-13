@@ -10,11 +10,16 @@ namespace StreamingConnection
   {
     public static void Main (string[] args)
     {
+      string urlString = "ENTER_STREAM_URL_HERE";
+      
       HttpWebRequest request = (System.Net.HttpWebRequest)WebRequest.Create("YOUR_STREAM_URL_HERE");
       request.Method = "GET";
        
       //Setup Credentials
-      NetworkCredential nc = new NetworkCredential("YOUR_USERNAME_HERE", "YOUR_PASSWORD_HERE");
+      string username = "ENTER_USERNAME_HERE";
+      string password = "ENTER_PASSWORD_HERE";
+     
+      NetworkCredential nc = new NetworkCredential(username, password);
       request.Credentials = nc;
       
       request.PreAuthenticate = true;

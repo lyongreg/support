@@ -8,12 +8,14 @@ require 'curb'
 # Note: this snippet DOES NOT handle breaking up the chunks of data into separate lines.
 # You should take this into account and provide additional functionality to do so.
 
-username,password,url = ARGV.first 3
+user = "ENTER_USERNAME_HERE"
+pass = "ENTER_PASSWORD_HERE"
+url = "ENTER_RULES_API_URL_HERE"
 
 Curl::Easy.http_get url do |c|
   c.http_auth_types = :basic
-  c.username = username
-  c.password = password
+  c.username = user
+  c.password = pass
 
   c.encoding = "gzip"
   c.verbose = true

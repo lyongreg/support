@@ -8,8 +8,6 @@ import java.util.zip.GZIPInputStream;
 public class StreamingConnection {
     public static void main(String... args) throws IOException {
 
-        // ENTER REAL INFORMATION HERE
-        
 	String username = "YOUR_USERNAME_HERE";
         String password = "YOUR_PASSWORD_HERE";
 	String dataCollectorURL = "YOUR_STREAM_URL_HERE";	
@@ -25,7 +23,6 @@ public class StreamingConnection {
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-                // Just prints the first line of the response.
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(inputStream)));
                 String line = reader.readLine();
 

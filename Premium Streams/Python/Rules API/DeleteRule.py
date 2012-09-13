@@ -21,7 +21,9 @@ if __name__ == "__main__":
 	url = 'ENTER_RULES_API_URL_HERE'
 	UN = 'ENTER_USERNAME_HERE'
         PWD = 'ENTER_PASSWORD_HERE'
-	values = '{"rules":[{"value":"ENTER_RULE_HERE"}]}'
+        rule = 'ENTER_RULE_VALUE_HERE'        
+
+	values = '{"rules":[{"value":"' + rule + '"}]}'
 	base64string = base64.encodestring('%s:%s' % (UN, PWD)).replace('\n', '')
 	
 	req = RequestWithMethod(url, 'DELETE', data=values)

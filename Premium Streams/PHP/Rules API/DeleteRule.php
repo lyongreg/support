@@ -1,4 +1,4 @@
-i<?php
+<?php
 
 $user = "ENTER_USERNAME_HERE";
 $pass = "ENTER_PASSWORD_HERE";
