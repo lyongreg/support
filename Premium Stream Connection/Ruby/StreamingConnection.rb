@@ -2,7 +2,6 @@ require 'rubygems'
 require 'curb'
 
 # This uses the 'curb' libcurl wrapper for ruby, found at https://github.com/taf2/curb/  
-# Usage: <script> username password url
 # prints data to stdout.
 
 # Note: this snippet DOES NOT handle breaking up the chunks of data into separate lines.
