@@ -15,7 +15,7 @@ $rule_value = "testRule";
 //	Expected Premium Stream URL Format:
 //		https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
 
-$url = "https://demo.gnip.com/data_collectors/41/rules.xml";
+$url = "ENTER_RULES_API_URL_HERE";
 
 //	Edit below to use the rule format that matches the Rules API URL you entered above
 
