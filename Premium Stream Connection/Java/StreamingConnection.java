@@ -10,21 +10,21 @@ public class StreamingConnection {
 
 	String username = "YOUR_USERNAME_HERE";
         String password = "YOUR_PASSWORD_HERE";
-	String dataCollectorURL = "YOUR_STREAM_URL_HERE";	
+	String streamURL = "YOUR_STREAM_URL_HERE";	
 
         HttpURLConnection connection = null;
         InputStream inputStream = null;
 
         try {
-            connection = getConnection(dataCollectorURL, username, password);
+            connection = getConnection(streamURL, username, password);
 
             inputStream = connection.getInputStream();
             int responseCode = connection.getResponseCode();
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(inputStream)));
-                String line = reader.readLine();
+               	BufferedReader reader = new BufferedReader(new InputStreamReader(new StreamingGZIPInputStream(inputStream)));
+		String line = reader.readLine();
 
                 while(line != null){
                     System.out.println(line);
