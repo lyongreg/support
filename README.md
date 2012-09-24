@@ -3,7 +3,7 @@
 <p>This repository contains sample code snippets that demonstrate the basic API methods available on Gnip's API.  These are broken into two categories:
 	<ul>
 		<li>
-			<strong>Premium Stream Connection</strong> - Establish a streaming connection to a premium Gnip stream</li>
+			<strong>Premium Stream Connection</strong> - Establish a streaming connection to a premium Gnip stream, using gzip compression</li>
 		<li>
 			<strong>Rules API</strong> - Add, Delete, and List rules on premium and Enterprise Data Collector streams</li>
 	</ul>
