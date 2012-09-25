@@ -1,5 +1,5 @@
 <h1>Rules API Methods</h1>
-<h2>C# Example</h2>
+<h2>Java Examples</h2>
 <p>The following java snippets demonstrate how to perform the following rule-management operations on Gnip's Rules API.
 <ul>
 	<li>
@@ -19,4 +19,5 @@
 	<li>
 		Enterprise Data Collector streams, using XML formatted rules</li>
 </ul>
-Each snippet provides examples of what the stream URL should look like for each type described above, and includes specific lines that may be commented or uncommented depending on the type of stream you are using.</p>
+</p>
+<p>Each snippet provides examples of what the stream URL should look like for each type described above, and includes specific lines that may be commented or uncommented depending on the type of stream you are using.</p>
