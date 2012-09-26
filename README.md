@@ -22,3 +22,4 @@
 			Ruby</li>
 	</ul>
 </p>
+<p>These snippets should serve as an example only for the basic API functions, and do not provide additional functionality that will be crucuial to the success of your application (e.g. reconnect logic, batching rule updates, complying with rate limits, validating rules, retrying failed updates, etc.).</p>
