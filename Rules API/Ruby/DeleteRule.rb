@@ -30,7 +30,7 @@ rule = "{\"rules\":[{\"value\":\"" + rule_value + "\"}]}"
 # rule = "<rules><rule><value>" + rule_value + "</value></rule></rules>"
 
 Curl::Easy.http_delete(url) do |c|
-  c.http_auth_types = :basici
+  c.http_auth_types = :basic
   c.username = user
   c.password = pass
   c.post_body = rule 
