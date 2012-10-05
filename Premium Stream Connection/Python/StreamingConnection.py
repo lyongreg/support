@@ -9,7 +9,10 @@ from cStringIO import StringIO
 import json
 import sys
 
-# tune these as needed
+# Tune these as needed. 
+# Note that a MAXBUFFSIZE of 20*CHUNKSIZE corresponds to around 10 Tweets.
+# So, if you are consuming a low volume stream, the Activities will sit in the buffer until ~10 are sent into the buffer.
+
 CHUNKSIZE = 1024
 MAXBUFFSIZE = 20*CHUNKSIZE
 
