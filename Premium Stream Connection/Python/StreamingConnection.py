@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import urllib2
 import base64
 import zlib
@@ -9,7 +8,7 @@ import json
 import sys
 import ssl
 
-# Tune CHUNKSIZE as needed. 
+# Tune CHUNKSIZE as needed.  The CHUNKSIZE is the size of compressed data read
 # For high volume streams, use large chuck sizes, for low volume streams, decrease
 # CHUNKSIZE.  Minimum practical is about 1K.
 
@@ -33,7 +32,8 @@ class procEntry(threading.Thread):
         self.buf = buf
         threading.Thread.__init__(self)
 
-    for rec in [x.strip() for x in self.buf.split(NEWLINE) if x.strip() <> '']:
+    def run(self):
+        for rec in [x.strip() for x in self.buf.split(NEWLINE) if x.strip() <> '']:
             try:
                 jrec = json.loads(rec.strip())
                 tmp = json.dumps(jrec)
@@ -44,7 +44,7 @@ class procEntry(threading.Thread):
                     sys.stderr.write("Error processing JSON: %s (%s)\n"%(str(e), rec))
 
 def getStream():
-   req = urllib2.Request(URL, headers=HEADERS)
+    req = urllib2.Request(URL, headers=HEADERS)
     response = urllib2.urlopen(req, timeout=(1+GNIPKEEPALIVE))
     # header -  print response.info()
     decompressor = zlib.decompressobj(16+zlib.MAX_WBITS)
@@ -57,8 +57,6 @@ def getStream():
         procEntry(records).start()
 
 if __name__ == "__main__":
-  
-    # Note that this performs automatic reconnects to the stream, in an infinite loop
     while True:
         try:
             getStream()
