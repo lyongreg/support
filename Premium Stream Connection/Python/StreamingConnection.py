@@ -11,7 +11,6 @@ import ssl
 # Tune CHUNKSIZE as needed.  The CHUNKSIZE is the size of compressed data read
 # For high volume streams, use large chuck sizes, for low volume streams, decrease
 # CHUNKSIZE.  Minimum practical is about 1K.
-
 CHUNKSIZE = 4*1024
 GNIPKEEPALIVE = 30  # seconds
 NEWLINE = '\r\n'
@@ -57,6 +56,7 @@ def getStream():
         procEntry(records).start()
 
 if __name__ == "__main__":
+# Note: this automatically reconnects to the stream upon being disconnected
     while True:
         try:
             getStream()
