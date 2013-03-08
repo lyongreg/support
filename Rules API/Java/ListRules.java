@@ -8,7 +8,8 @@ public class ListRules {
     public static void main(String... args) throws IOException {
 
 	String username = "ENTER_USERNAME_HERE";
-        String password = "ENTER_PASSWORD_HERE";
+    String password = "ENTER_PASSWORD_HERE";
+    String charset = "UTF-8";
 
 //	Ensure that your stream format matches the rule format you intend to use (e.g. '.xml' or '.json')
 //	See below to edit the rule format used when adding and deleting rules (xml or json)
@@ -33,7 +34,7 @@ public class ListRules {
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader((inputStream)));
+                BufferedReader reader = new BufferedReader(new InputStreamReader((inputStream), charset));
                 String line = reader.readLine();
 
                 while(line != null){

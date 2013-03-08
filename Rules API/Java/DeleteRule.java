@@ -61,7 +61,7 @@ class DeleteRule {
                 
                 inputStream = connection.getInputStream();
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream), charset);
                 String line = reader.readLine();
                 System.out.println("Response Code: " + responseCode + " -- " + responseMessage);
 		while(line != null){
@@ -71,7 +71,7 @@ class DeleteRule {
             } else {
                  handleNonSuccessResponse(connection);
                  inputStream = connection.getErrorStream();
-                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream));
+                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream), charset);
                  String line2 = reader3.readLine();
                  while (line2 != null){
                  	System.out.println(line2);

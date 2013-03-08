@@ -22,10 +22,10 @@ class AddRule {
 //		https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
 	
 	String dataCollectorURL = "ENTER_RULES_API_URL_HERE";
- 
-        String charset = "UTF-8";
-        String param1 = "testTag";  //tag for rule
-        String param2 = "testRule"; //our rule to add
+
+    String charset = "UTF-8";
+    String param1 = "testTag";  //tag for rule
+    String param2 = "testRule"; //our rule to add
         
 	
 //	Edit below to use the rule format that matches the Rules API URL you entered above
@@ -65,7 +65,7 @@ class AddRule {
                 inputStream = connection.getInputStream();
 
                 // Just print the first line of the response.
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream), charset);
                 String line = reader.readLine();
                 System.out.println("Response Code: " + responseCode + " -- " + responseMessage);
 		while(line != null){
@@ -75,7 +75,7 @@ class AddRule {
             } else {
                  handleNonSuccessResponse(connection);
                  inputStream = connection.getErrorStream();
-                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream));
+                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream), charset);
                  String line2 = reader3.readLine();
                  while (line2 != null){
                  	System.out.println(line2);
