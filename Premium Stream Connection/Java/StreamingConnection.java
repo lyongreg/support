@@ -9,7 +9,7 @@ public class StreamingConnection {
     public static void main(String... args) throws IOException {
 
 	String username = "YOUR_USERNAME_HERE";
-        String password = "YOUR_PASSWORD_HERE";
+    String password = "YOUR_PASSWORD_HERE";
 	String streamURL = "YOUR_STREAM_URL_HERE";	
 
         HttpURLConnection connection = null;
@@ -23,7 +23,7 @@ public class StreamingConnection {
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-               	BufferedReader reader = new BufferedReader(new InputStreamReader(new StreamingGZIPInputStream(inputStream)));
+               	BufferedReader reader = new BufferedReader(new InputStreamReader(new StreamingGZIPInputStream(inputStream), "UTF-8"));
 		String line = reader.readLine();
 
                 while(line != null){
