@@ -17,6 +17,19 @@ function print_out_data($ch, $data) {
   return strlen($data);
 }
 
+//Timeout considerations: these two setting can be used together to tune your
+//system if you are not properly timing out.  
+//CURLOPT_LOW_SPEED_LIMIT: long
+// -- Specify the transfer speed in bytes per second that the transfer should be  
+// below during CURLOPT_LOW_SPEED_TIME seconds for the library to 
+//consider it too slow and abort.
+//CURLOPT_LOW_SPEED_TIME: long
+//-- Specify the time in seconds that the transfer should be 
+//below the CURLOPT_LOW_SPEED_LIMIT for the library to consider 
+//it too slow and abort.
+//NOTE: you do not want to use the CURLOPT_TIMEOUT for streaming connections.
+
+
 $ch = curl_init();
 curl_setopt_array($ch, array(
   CURLOPT_URL => $stream_url,
