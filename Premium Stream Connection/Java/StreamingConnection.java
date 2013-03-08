@@ -1,6 +1,7 @@
 import sun.misc.BASE64Encoder;
 
 import java.io.*;
+import java.lang.String;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
@@ -10,7 +11,8 @@ public class StreamingConnection {
 
 	String username = "YOUR_USERNAME_HERE";
     String password = "YOUR_PASSWORD_HERE";
-	String streamURL = "YOUR_STREAM_URL_HERE";	
+	String streamURL = "YOUR_STREAM_URL_HERE";
+    String charset = "UTF-8"
 
         HttpURLConnection connection = null;
         InputStream inputStream = null;
@@ -23,7 +25,7 @@ public class StreamingConnection {
 
             if (responseCode >= 200 && responseCode <= 299) {
 
-               	BufferedReader reader = new BufferedReader(new InputStreamReader(new StreamingGZIPInputStream(inputStream), "UTF-8"));
+               	BufferedReader reader = new BufferedReader(new InputStreamReader(new StreamingGZIPInputStream(inputStream), charset));
 		String line = reader.readLine();
 
                 while(line != null){
