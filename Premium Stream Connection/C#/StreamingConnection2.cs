@@ -29,14 +29,14 @@ namespace StreamingConnection
 
             Console.WriteLine("Starting...");
 
-            string urlString = "https://stream.gnip.com:443/accounts/jim/publishers/twitter/streams/track/prod.json";  //="ENTER_STREAM_URL_HERE";
+            string urlString = "ENTER_STREAM_URL_HERE";  // LIKE --> "https://stream.gnip.com:443/accounts/<account_name>/publishers/twitter/streams/track/prod.json";
   
             HttpWebRequest request = (System.Net.HttpWebRequest)WebRequest.Create(urlString);
             request.Method = "GET";
 
             //Setup Credentials.
-            string username = "jmoffitt@gnipcentral.com"; //= "ENTER_USERNAME_HERE";
-            string password = "a6avant"; //="ENTER_PASSWORD_HERE";
+            string username = "ENTER_USERNAME_HERE";
+            string password = "ENTER_PASSWORD_HERE";
 
             //Authentication details.
             NetworkCredential nc = new NetworkCredential(username, password);
