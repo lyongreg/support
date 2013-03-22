@@ -1,14 +1,15 @@
-﻿/*
+﻿/*  This example uses a asynchronous design by implementing a .Net AsyncCallback delegate. This example performs more
+ *  explicit management of the incoming stream buffer. It explicitly looks for end of line markers which denote either
+ *  the end of an incoming activity, or a "heartbeat" signal from the Gnip server. When that marker is found, it
+ *  immediately writes out the buffered data.
+ *
+ *  Several customers reported high data latency with our other, more basic, C# example when working with low volumes.
+ *
+ *  One of these customers posted a discussion of the issue at StackOverflow:
+ *  http://stackoverflow.com/questions/14760303/streamed-http-with-gzip-being-buffered-by-streamreader/14778103#14778103
  * 
- * 
- *   http://stackoverflow.com/questions/14760303/streamed-http-with-gzip-being-buffered-by-streamreader/14778103#14778103
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ *  Thanks to Dan for sharing his code to better handle the streaming data buffer.
+ *
  */
 
 using System;
