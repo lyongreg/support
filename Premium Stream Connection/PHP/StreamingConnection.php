@@ -58,5 +58,5 @@ do {
 } while($running > 0);
 
 curl_multi_remove_handle($mh, $ch);
-curl_multi_close($ch);
+curl_multi_close($mh);
 ?>
