@@ -56,9 +56,8 @@ if __name__ == "__main__":
 	req.add_header("Authorization", "Basic %s" % base64string)
 
 	try:
-		response = urllib2.urlopen(req)
+	    response = urllib2.urlopen(req)
 	except urllib2.HTTPError as e:
-        	print e.read()
+            print e.read()
 
-	
 	the_page = response.read()
