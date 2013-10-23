@@ -38,6 +38,7 @@ curl_setopt_array($ch, array(
   CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
   CURLOPT_USERPWD => $user.":".$pass,
   CURLOPT_WRITEFUNCTION => "print_out_data",
+  CURLOPT_BUFFERSIZE => 2000
 //  CURLOPT_VERBOSE => true // uncomment for curl verbosity
 
 ));
@@ -52,8 +53,6 @@ curl_multi_add_handle($mh, $ch);
 do {
   curl_multi_select($mh, 1);      // wait for activity
   curl_multi_exec($mh, $running); // perform activity
-
-  print	'.'; 
 
 } while($running > 0);
 
