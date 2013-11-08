@@ -45,7 +45,12 @@ def post():
     	req.add_header('Content-type', 'application/xml')
 
 	req.add_header("Authorization", "Basic %s" % base64string)  
-	response = urllib2.urlopen(req)
+	
+	try:
+		response = urllib2.urlopen(req)
+	except urllib2.HTTPError as e:
+		print e.read()
+		
 	the_page = response.read()
 
 if __name__ == "__main__":

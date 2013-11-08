@@ -65,7 +65,7 @@ class AddRule {
                 inputStream = connection.getInputStream();
 
                 // Just print the first line of the response.
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream), charset);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String line = reader.readLine();
                 System.out.println("Response Code: " + responseCode + " -- " + responseMessage);
 		while(line != null){
@@ -75,7 +75,7 @@ class AddRule {
             } else {
                  handleNonSuccessResponse(connection);
                  inputStream = connection.getErrorStream();
-                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream), charset);
+                 BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream));
                  String line2 = reader3.readLine();
                  while (line2 != null){
                  	System.out.println(line2);
